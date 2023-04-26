@@ -35,7 +35,12 @@ def remove_html_tags(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+
+    # Create a BeautifulSoup object
+    soup = BeautifulSoup(text, "html.parser")
+
+    # Extract the text from the soup object and remove HTML tags
+    return soup.get_text()
 
 
 def stem_text(text: str) -> str:
@@ -54,7 +59,13 @@ def stem_text(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # Tokenize
+    tokens = word_tokenize(text)
+    # Stemming
+    stemmer = nltk.porter.PorterStemmer()
+    tokens_stemmer = [stemmer.stem(token) for token in tokens]
+    # return token as a unique string
+    return " ".join(tokens_stemmer)
 
 
 def lemmatize_text(text: str) -> str:
