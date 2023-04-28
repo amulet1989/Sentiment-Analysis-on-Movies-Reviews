@@ -212,4 +212,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Datasets folder
+dataset/
+My_experiments/
+
 # End of https://www.toptal.com/developers/gitignore/api/python,windows,venv

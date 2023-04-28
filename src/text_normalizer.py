@@ -35,7 +35,12 @@ def remove_html_tags(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+
+    # Create a BeautifulSoup object
+    soup = BeautifulSoup(text, "html.parser")
+
+    # Extract the text from the soup object and remove HTML tags
+    return soup.get_text()
 
 
 def stem_text(text: str) -> str:
@@ -54,7 +59,13 @@ def stem_text(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # Tokenize
+    tokens = word_tokenize(text)
+    # Stemming
+    stemmer = nltk.porter.PorterStemmer()
+    tokens_stemmer = [stemmer.stem(token) for token in tokens]
+    # return token as a unique string
+    return " ".join(tokens_stemmer)
 
 
 def lemmatize_text(text: str) -> str:
@@ -72,7 +83,14 @@ def lemmatize_text(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # tokenize the input text using the Spacy model
+    doc = nlp(text)
+
+    # extract the lemma for each token in the document
+    lemmas = [token.lemma_ for token in doc]
+
+    # return the lemmatized text as a string
+    return " ".join(lemmas)
 
 
 def remove_accented_chars(text: str) -> str:
@@ -88,7 +106,9 @@ def remove_accented_chars(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # use unicodedata to normalize the text and remove accents
+    normalized_text = unicodedata.normalize("NFD", text)
+    return "".join(c for c in normalized_text if unicodedata.category(c) != "Mn")
 
 
 def remove_special_chars(text: str, remove_digits: Optional[bool] = False) -> str:
@@ -106,7 +126,13 @@ def remove_special_chars(text: str, remove_digits: Optional[bool] = False) -> st
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # Use regex to remove non-alphanumeric characters
+    if remove_digits:
+        pattern = r"[^a-zA-Z ]"
+    else:
+        pattern = r"[^a-zA-Z0-9 ]"
+
+    return re.sub(pattern, "", text)
 
 
 def remove_stopwords(
@@ -132,7 +158,16 @@ def remove_stopwords(
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # Tokenize the input string
+    tokens = tokenizer.tokenize(text)
+    # Remove stopwords
+    tokens = [token for token in tokens if token.lower() not in stopwords]
+
+    # Join the remaining tokens
+    if is_lower_case:
+        return " ".join(tokens).lower()
+    else:
+        return " ".join(tokens)
 
 
 def remove_extra_new_lines(text: str) -> str:
@@ -148,7 +183,10 @@ def remove_extra_new_lines(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # Replace extra new lines and tabs with a single space
+    cleaned_text = " ".join(text.split())
+
+    return cleaned_text
 
 
 def remove_extra_whitespace(text: str) -> str:
@@ -164,7 +202,10 @@ def remove_extra_whitespace(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # Replace multiple whitespace characters with a single space
+    cleaned_text = " ".join(text.split())
+
+    return cleaned_text
 
 
 def expand_contractions(text, contraction_mapping=CONTRACTION_MAP) -> str:
