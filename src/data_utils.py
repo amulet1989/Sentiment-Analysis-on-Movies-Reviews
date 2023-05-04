@@ -61,9 +61,9 @@ def split_data(
             List labels for test
     """
     # TODO
-    X_train = train.drop(columns="positive")
-    y_train = train.drop(columns="review")
-    X_test = test.drop(columns="positive")
-    y_test = test.drop(columns="review")
+    y_train = train["positive"]
+    X_train = train["review"]
+    y_test = test["positive"]
+    X_test = test["review"]
 
     return X_train, y_train, X_test, y_test
