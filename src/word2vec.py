@@ -28,18 +28,13 @@ def vectorizer(
             document in the corpus.
     """
     # TODO
-    num_docs = len(corpus)
-    corpus_vectors = np.zeros((num_docs, num_features))
-
-    for i, doc in enumerate(corpus):
-        doc_vector = np.zeros((num_features,))
-        word_count = 0
-        for word in doc:
-            if word in model.wv:
-                doc_vector += model.wv[word]
-                word_count += 1
-        if word_count > 0:
-            doc_vector /= word_count
-        corpus_vectors[i] = doc_vector
-
-    return corpus_vectors
+    vectors = []
+    for tokens in corpus:
+        # Generate a vector for each token and append it to the list of vectors
+        word_vectors = [model.wv[word] for word in tokens if word in model.wv]
+        # If there are no word vectors for the tokens, append a zero vector
+        if len(word_vectors) == 0:
+            vectors.append(np.zeros(model.vector_size))
+        else:
+            vectors.append(np.mean(word_vectors, axis=0))  # average of the word vectors
+    return np.array(vectors)
