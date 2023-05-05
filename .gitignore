@@ -186,6 +186,9 @@ pyrightconfig.json
 pyvenv.cfg
 pip-selfcheck.json
 
+### VScode
+.vscode
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
