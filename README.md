@@ -1,5 +1,4 @@
-# Sprint Project 05
-> Sentiment Analysis on Movies Reviews
+# Sentiment Analysis on Movies Reviews
 
 ## The Business problem
 
@@ -11,13 +10,13 @@ Basically this is a basic sentiment analysis problem, as in this case, consists 
 
 In this project, we will work exclusively with two files: `movies_review_train_aai.csv` and `movies_review_test_aai.csv`.
 
-You don't have to worry about downloading the data, it will be automatically downloaded from the `AnyoneAI - Sprint Project 05.ipynb` notebook in `Section 1. Get the data`.
+You don't have to worry about downloading the data, it will be automatically downloaded from the [AnyoneAI - Sprint Project 05.ipynb](https://github.com/amulet1989/Sentiment-Analysis-on-Movies-Reviews/blob/main/AnyoneAI%20-%20Sprint%20Project%2005.ipynb) notebook in `Section 1. Get the data`.
 
 This is a dataset for **binary sentiment classification**.
 
 ## Technical aspects
 
-To develop this Machine Learning model you will have to primary interact with the Jupyter notebook provided, called `AnyoneAI - Sprint Project 05.ipynb`. This notebook will guide you through all the steps you have to follow and the code you have to complete in the different parts of the project, also marked with a `TODO` comment.
+To develop this Machine Learning model we had to primarily interact with the Jupyter notebook provided, called AnyoneAI - Sprint Project 05.ipynb. This notebook will guide you through all the steps we had following.
 
 ## Install
 
@@ -38,13 +37,13 @@ $ cd project
 $ jupyter notebook
 ```
 
-Then, inside the file `AnyoneAI - Sprint Project 05.ipynb`, you can see the project statement, description and also which parts of the code you must complete in order to solve it.
+Then, inside the file `AnyoneAI - Sprint Project 05.ipynb`, you can see the project statement and description of the code we completed in order to solve it.
 
 ## Code Style
 
-Following a style guide keeps the code's aesthetics clean and improves readability, making contributions and code reviews easier. Automated Python code formatters make sure your codebase stays in a consistent style without any manual work on your end. If adhering to a specific style of coding is important to you, employing an automated to do that job is the obvious thing to do. This avoids bike-shedding on nitpicks during code reviews, saving you an enormous amount of time overall.
+Following a style guide keeps the code's aesthetics clean and improves readability, making contributions and code reviews easier. Automated Python code formatters make sure your codebase stays in a consistent style without any manual work on your end.  This avoids bike-shedding on nitpicks during code reviews, saving you an enormous amount of time overall.
 
-We use [Black](https://black.readthedocs.io/) for automated code formatting in this project, you can run it with:
+We use [Black](https://black.readthedocs.io/) for automated code formatting in this project, you can run it with
 
 ```console
 $ black --line-length=88 .
@@ -56,14 +55,14 @@ Wanna read more about Python code style and good practices? Please see:
 
 ## Tests
 
-We've added some basic tests to `AnyoneAI - Sprint Project 05.ipynb` that you must be able to run without errors in order to approve the project. If you encounter some issues in the path, make sure to be following these requirements in your code:
+We've created some basic tests to `AnyoneAI - Sprint Project 05.ipynb` that the code must be able to run without errors in order to check the project. If you encounter some issues in the path, make sure to be following these requirements in your code:
 
 - Every time you need to run a tokenizer on your sentences, use `nltk.tokenize.toktok.ToktokTokenizer`.
 - When removing stopwords, always use `nltk.corpus.stopwords.words('english')`.
 - For Stemming, use `nltk.porter.PorterStemmer`.
 - For Lematizer, use `Spacy` pre-trained model `en_core_web_sm`.
 
-We provide unit tests along with the project that you can run and check from your side the code meets the minimum requirements of correctness needed to approve. To run just execute:
+We provided unit tests along with the project that you can run and check from your side the code meets the minimum requirements of correctness. To run just execute:
 
 ```console
 $ pytest tests/
